@@ -1,0 +1,31 @@
+DROP TABLE IF EXISTS user;
+CREATE TABLE user (
+  id BIGINT NOT NULL AUTO_INCREMENT,
+  age INT NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  userName VARCHAR(100) NOT NULL,
+  password VARCHAR(100) NOT NULL,
+  passwordExpiration DATE NOT NULL,
+  PRIMARY KEY (id));
+  
+DROP TABLE IF EXISTS product;
+CREATE TABLE product (
+  id BIGINT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  catagory VARCHAR(100) NOT NULL,
+  description VARCHAR(200) NOT NULL,
+  PRIMARY KEY (id));
+
+DROP TABLE IF EXISTS bid;
+CREATE TABLE bid (
+  id BIGINT NOT NULL AUTO_INCREMENT,
+  product_id BIGINT NOT NULL,
+  user_id BIGINT NOT NULL,
+  price DOUBLE NOT NULL,
+  timestamp TIMESTAMP NOT NULL,
+  CONSTRAINT fk_product_id FOREIGN KEY (product_id) REFERENCES product(id),
+  CONSTRAINT fk_user_id    FOREIGN KEY (user_id)    REFERENCES user(id) 
+);
+
+  
+
