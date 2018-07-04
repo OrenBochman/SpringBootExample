@@ -71,10 +71,7 @@ public class User implements Comparable<User> {
 
 	public User() {}
 
-	public User(long id, String name) {
-		this.name = name;
-		this.id = id;
-	}
+
 	public String getName() {
 		return this.name;
 	}
